@@ -13,11 +13,11 @@ before_deploy:
 deploy:
   - provider: pages
     skip_cleanup: true
-    github-token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+    github-token: $SECRET_TOKEN # Set in the settings page of your repository, as a secure variable
     keep-history: true
     target-branch: master
   - provider: releases
-    api_key: $GITHUB_TOKEN 
+    api_key: $SECRET_TOKEN 
     file_glob: true
     file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
     skip_cleanup: true
